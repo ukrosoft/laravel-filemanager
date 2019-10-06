@@ -67,7 +67,7 @@ class UploadController extends LfmController
 
         event(new ImageIsUploading($new_file_path));
         try {
-            if (parent::fileIsImage($file) && !in_array($file->getMimeType(), ['image/gif', 'image/svg+xml'])) {
+            if (parent::fileIsImage($file) && !in_array($file->getMimeType(), ['image/gif', 'image/svg', 'image/svg+xml'])) {
                 // Handle image rotation
                 Image::make($file->getRealPath())
                     ->orientate() //Apply orientation from exif data
